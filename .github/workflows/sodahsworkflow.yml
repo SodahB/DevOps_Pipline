@@ -72,9 +72,10 @@ jobs:
     
       - name: Build Docker Image
         run: |
-          docker build -t myapp:latest .
+          docker build -t ${{ secrets.DOCKER_SODAH_USERNAME }}/myapp:latest -t ${{ secrets.DOCKER_SODAH_USERNAME }}/myapp:${{ github.sha }} .
 
       - name: Push Docker Image to Docker Hub
         run: |
-          docker tag myapp:latest ${{ secrets.DOCKER_SODAH_USERNAME }}/myapp:latest
           docker push ${{ secrets.DOCKER_SODAH_USERNAME }}/myapp:latest
+          docker push ${{ secrets.DOCKER_SODAH_USERNAME }}/myapp:${{ github.sha }}
+
