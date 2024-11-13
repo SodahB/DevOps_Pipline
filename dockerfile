@@ -1,4 +1,3 @@
-
 FROM python:3.10-slim
 
 ENV PYTHONUNBUFFERED=1
@@ -13,4 +12,5 @@ COPY . .
 
 EXPOSE 80
 
-CMD ["python", "fetch_weather.py"]
+# Start Streamlit och lyssna på port 80
+CMD ["streamlit", "run", "fetch_weather.py", "--server.port=80", "--server.address=0.0.0.0"]
