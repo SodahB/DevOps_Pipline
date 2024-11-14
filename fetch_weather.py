@@ -41,4 +41,5 @@ def print_temperature_data():
 
 if __name__ == "__main__":
     os.system("streamlit run fetch_weather.py --server.port=80 --server.address=0.0.0.0")
+    print_temperature_data()
     
