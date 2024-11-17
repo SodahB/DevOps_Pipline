@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 import streamlit as st
+import os
+
 
 def get_smhi_data():
     url = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/18.071094/lat/59.325117/data.json'
@@ -19,7 +21,6 @@ def extract_temperature_and_time(entry):
             
     return valid_time, temperature
 
-# Streamlit display function
 def print_temperature_data():
     data = get_smhi_data()
     count = 0
@@ -38,4 +39,6 @@ def print_temperature_data():
             count += 1
 
 if __name__ == "__main__":
+    os.system("streamlit run fetch_weather.py --server.port=80 --server.address=0.0.0.0")
     print_temperature_data()
+    
