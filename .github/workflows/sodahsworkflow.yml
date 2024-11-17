@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "Sodah" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "Sodah" ]
+    branches: [ "main" ]
   
   workflow_dispatch:
     inputs:
